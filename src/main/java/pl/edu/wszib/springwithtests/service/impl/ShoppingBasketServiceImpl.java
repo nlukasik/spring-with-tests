@@ -3,7 +3,6 @@ package pl.edu.wszib.springwithtests.service.impl;
 import org.dozer.Mapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.web.client.HttpClientErrorException;
 import pl.edu.wszib.springwithtests.NotFoundException;
 import pl.edu.wszib.springwithtests.dao.ProductDao;
 import pl.edu.wszib.springwithtests.dao.ShoppingBasketDao;
@@ -82,7 +81,7 @@ public class ShoppingBasketServiceImpl implements ShoppingBasketService {
             throw new NotFoundException();
         }
 
-        ShoppingBasketItem item = shoppingBasketItemDao.findByProductIdAAndShoppingBasketId(product.getId(), basket.getId());
+        ShoppingBasketItem item = shoppingBasketItemDao.findByProductIdAndShoppingBasketId(product.getId(), basket.getId());
         if (item != null) {
             item.setAmount(item.getAmount() + 1);
 

@@ -21,7 +21,6 @@ import pl.edu.wszib.springwithtests.model.ShoppingBasket;
 import pl.edu.wszib.springwithtests.model.ShoppingBasketItem;
 import pl.edu.wszib.springwithtests.model.Vat;
 
-import java.rmi.server.ExportException;
 import java.util.Collections;
 import java.util.Optional;
 
@@ -103,7 +102,7 @@ public class ShoppingBasketServiceImplTest {
         item.setProduct(mapper.map(productDTO, Product.class));
 
         Mockito.when((shoppingBasketItemDao
-                .findByProductIdAAndShoppingBasketId(
+                .findByProductIdAndShoppingBasketId(
                         productDTO.getId(), testShoppingBasketId)))
             .thenReturn(item);
 
